@@ -1,0 +1,190 @@
+:root {
+  /* Primary Colors */
+  --color-primary: #a87ffb;
+  --color-primary-dark: #7a4ed1;
+  --color-primary-light: #d9baff;
+
+  /* Accent Colors */
+  --color-accent: #ffb84f;
+  --color-accent-dark: #b77a2c;
+  --color-accent-light: #ffe0b3;
+
+  /* Backgrounds */
+  --color-bg: #181a20;
+  --color-bg-alt: #23262f;
+  --color-surface: #242731;
+
+  /* Text */
+  --color-text: #f4f4f4;
+  --color-text-muted: #b0b3bb;
+  --color-text-inverse: #181a20;
+
+  /* Borders & Dividers */
+  --color-border: #31344b;
+  --color-divider: #23262f;
+
+  /* Success, Warning, Error */
+  --color-success: #4fd18c;
+  --color-warning: #ffd24f;
+  --color-error: #ff4f5a;
+}
+
+/* Example usage */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+}
+header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 20px;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+}
+h1 {
+  display: none;
+}
+img {
+  max-width: 100%;
+  max-height: 150px;
+  display: block;
+  margin: 0 auto;
+}
+header ul {
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+header ul li {
+  list-style: none;
+  background-color: var(--color-accent);
+  border-radius: 5px;
+}
+header ul li:hover {
+  background-color: var(--color-accent-dark);
+}
+header ul li a {
+  color: var(--color-text-inverse);
+  font-weight: bold;
+  display: block;
+  padding: 10px 15px;
+}
+header ul li:hover a {
+  color: var(--color-text);
+}
+content {
+  position: relative;
+}
+content:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, var(--color-surface), var(--color-primary));
+  z-index: -1;
+  clip-path: polygon(0% 100%, 50% 100%, 100% 0);
+  opacity: 0.1;
+  animation: leftToRight 13s linear infinite;
+}
+@keyframes leftToRight {
+  50% {
+    clip-path: polygon(80% 100%, 100% 100%, 100% 0);
+  }
+}
+content:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, var(--color-surface), var(--color-primary));
+  z-index: -1;
+  clip-path: polygon(50% 100%, 100% 100%, 0 0);
+  opacity: 0.1;
+  animation: rightToLeft 9s linear infinite;
+}
+@keyframes rightToLeft {
+  50% {
+    clip-path: polygon(0 100%, 20% 100%, 0 0);
+  }
+}
+section {
+  padding: 20px 0;
+}
+section ul {
+  padding: 0;
+}
+section ul.padded, section p, section h2 {
+  padding: 0 20px;
+}
+section ul li {
+  list-style: none;
+}
+section p {
+  line-height: 1.6;
+}
+section a {
+  color: var(--color-primary);
+}
+section a:hover {
+  color: var(--color-primary-dark);
+}
+section .zones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 20px;
+}
+section .zones li {
+  padding: 15px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+section .zones li:nth-child(odd) {
+  background-color: var(--color-bg-alt);
+  text-align: right;
+}
+section .zones li:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+}
+section .zones li:nth-child(odd):after {
+  left: 0;
+  border-top: 15px solid var(--color-accent);
+  border-right: 15px solid transparent;
+}
+section .zones li:nth-child(even) {
+  background-color: var(--color-border);
+}
+section .zones li:nth-child(even):after {
+  right: 0;
+  border-top: 15px solid var(--color-primary);
+  border-left: 15px solid transparent;
+}
+footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 0.9em;
+  color: var(--color-text-muted);
+}
